@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="js/jquery-2.0.3.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+    <script src="js/bootstrap.js"></script>
+    <script src="js/OAuth.js"></script>
+    <script src="js/github.js"></script>
+    <script src="js/providers/github.js"></script>
+</head>
+<body>
+    <script>
+        OAuth.initialize('iOG6Xc7QwAYCIsdVGcJuDX9hRRE');
+        var access_token;
+        var github;
+
+        function loginGithub() {
+            //Using popup (option 1)
+            OAuth.popup('github', function(err, result) {
+                //handle error with err
+                access_token = result.access_token;
+                console.log(result);
+                githubInit(function() {
+                    var user = github.getUser();
+                    console.log(user);
+                    user.repos(function(err, repo){
+                        if(err != null){
+                            console.log(err);
+                            return;
+                        }
+                        console.log(repo);
+                    });
+                });
+            });
+        }
+
+
+
+    </script>
+    <a href="#" class="btn" onclick="loginGithub()">Click Me!</a>
+    <a href="#" class="btn" onclick="formRequest()">Get User</a>
+</body>
+</html>
