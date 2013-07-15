@@ -9,10 +9,11 @@
     <script src="js/OAuth.js"></script>
     <script src="js/github.js"></script>
     <script src="js/providers/github.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=load"></script>
 </head>
 <body>
     <script>
-        OAuth.initialize('iOG6Xc7QwAYCIsdVGcJuDX9hRRE');
+        OAuth.initialize('');
         var access_token;
         var github;
 
@@ -40,6 +41,5 @@
 
     </script>
     <a href="#" class="btn" onclick="loginGithub()">Click Me!</a>
-    <a href="#" class="btn" onclick="formRequest()">Get User</a>
 </body>
 </html>
